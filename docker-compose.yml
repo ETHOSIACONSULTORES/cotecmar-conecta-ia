@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: cotecmar_conecta
+      POSTGRES_USER: cotecmar
+      POSTGRES_PASSWORD: cotecmar_local
+    ports:
+      - "5432:5432"
+    volumes:
+      - cotecmar_pg:/var/lib/postgresql/data
+
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql+psycopg2://cotecmar:cotecmar_local@db:5432/cotecmar_conecta
+      ADMIN_PASSWORD: local-admin
+      SESSION_SECRET: local-session-secret-change-me
+      COOKIE_SECURE: "false"
+      AI_AUTO_ANALYZE: "false"
+      PUBLIC_BASE_URL: http://localhost:8000
+    depends_on:
+      - db
+
+volumes:
+  cotecmar_pg:

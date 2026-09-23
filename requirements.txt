@@ -1,0 +1,12 @@
+fastapi>=0.141,<1
+uvicorn[standard]>=0.53,<1
+SQLAlchemy>=2.0,<3
+psycopg2-binary>=2.9,<3
+python-multipart>=0.0.9,<1
+Jinja2>=3.1,<4
+itsdangerous>=2.2,<3
+pypdf>=5,<7
+python-docx>=1.1,<2
+openai>=2.0,<3
+qrcode[pil]>=8,<9
+starlette==0.50.0

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#00385f">
+<title>COTECMAR Conecta IA · Registro de proveedores</title>
+<link rel="stylesheet" href="/static/app.css?v=1.0.1">
+</head>
+<body class="public-body">
+<header class="public-header">
+  <div class="container header-row">
+    <div class="brand-lockup">
+      <img src="/static/cotecmar_logo.png" alt="COTECMAR">
+      <div><strong>Conecta IA</strong><span>Relacionamiento inteligente con proveedores</span></div>
+    </div>
+    <span class="secure-pill">🔒 Información protegida</span>
+  </div>
+</header>
+<main>
+<section class="public-hero">
+  <div class="container hero-layout">
+    <div>
+      <div class="eyebrow">COTECMAR · Ecosistema de proveedores</div>
+      <h1>Conectemos sus capacidades con las necesidades de la industria naval.</h1>
+      <p>Registre su empresa y su portafolio. La plataforma organiza la información y genera un análisis de afinidad para facilitar la revisión del equipo de COTECMAR.</p>
+      <div class="event-card" id="eventCard">
+        <div class="event-icon">⚓</div>
+        <div><small>Evento activo</small><strong id="eventName">Cargando…</strong><span id="eventMeta"></span></div>
+      </div>
+    </div>
+    <div class="hero-steps">
+      <div><b>01</b><span>Registre la empresa</span></div>
+      <div><b>02</b><span>Adjunte su portafolio</span></div>
+      <div><b>03</b><span>IA clasifica capacidades</span></div>
+      <div><b>04</b><span>COTECMAR prioriza revisión</span></div>
+    </div>
+  </div>
+</section>
+<section class="container form-shell">
+  <div class="form-heading">
+    <div><span class="section-kicker">Perfil empresarial</span><h2>Registro de proveedor</h2><p>Complete la información principal. Los campos marcados con * son obligatorios.</p></div>
+    <div class="progress-chip"><span></span> Formulario seguro</div>
+  </div>
+  <form id="providerForm" enctype="multipart/form-data">
+    <input type="hidden" name="event_code" id="eventCode">
+    <div class="form-grid">
+      <label class="field wide"><span>Nombre de la empresa *</span><input name="company_name" required maxlength="180" placeholder="Razón social o nombre comercial"></label>
+      <label class="field"><span>Persona de contacto *</span><input name="contact_name" required maxlength="160" placeholder="Nombre completo"></label>
+      <label class="field"><span>Cargo</span><input name="contact_role" maxlength="160" placeholder="Gerente, director, consultor…"></label>
+      <label class="field"><span>Teléfono *</span><input name="phone" required maxlength="80" inputmode="tel" placeholder="+57 300 000 0000"></label>
+      <label class="field"><span>Correo electrónico *</span><input name="email" required maxlength="180" type="email" placeholder="contacto@empresa.com"></label>
+      <label class="field"><span>Ciudad *</span><input name="city" required maxlength="120" placeholder="Bucaramanga"></label>
+      <label class="field"><span>Tamaño de empresa *</span><select name="company_size" required><option value="">Seleccione</option><option>Microempresa (1–10)</option><option>Pequeña (11–50)</option><option>Mediana (51–200)</option><option>Grande (201+)</option><option>Consultor / independiente</option></select></label>
+      <label class="field"><span>Sitio web</span><input name="website" maxlength="300" type="url" placeholder="https://empresa.com"></label>
+      <label class="field"><span>LinkedIn</span><input name="linkedin" maxlength="300" type="url" placeholder="https://linkedin.com/company/..."></label>
+      <label class="field wide"><span>Resumen del portafolio *</span><textarea name="portfolio_summary" required minlength="20" rows="5" placeholder="Describa brevemente qué hace la empresa, principales productos, servicios, capacidades y experiencia relevante."></textarea><small>La IA utilizará este texto junto con el documento adjunto para clasificar sus capacidades.</small></label>
+      <div class="field wide"><span>Portafolio comercial · PDF o DOCX</span><label class="upload-zone" id="uploadZone"><input id="documentInput" name="document" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"><div class="upload-icon">⇧</div><strong>Adjuntar documento</strong><p>Toque aquí o arrastre el archivo. Máximo 8 MB.</p><small id="fileName">Ningún archivo seleccionado</small></label></div>
+      <label class="consent wide"><input type="checkbox" name="consent" value="true" required><span>Autorizo el tratamiento de mis datos personales para fines relacionados con identificación, caracterización y relacionamiento de proveedores, y declaro haber consultado la <a href="{{ privacy_url }}" target="_blank" rel="noopener">Política Corporativa de Tratamiento de Datos Personales de COTECMAR</a>. *</span></label>
+    </div>
+    <div class="form-actions"><button class="btn btn-primary btn-large" type="submit" id="submitBtn">Enviar información <span>→</span></button><p>Su registro será revisado por el equipo responsable. El análisis de IA es una herramienta de apoyo y no constituye aceptación, habilitación ni adjudicación.</p></div>
+  </form>
+</section>
+</main>
+<div class="toast" id="toast"></div>
+<div class="success-modal" id="successModal" style="display:none"><div class="success-card"><div class="success-mark">✓</div><h2>Registro recibido</h2><p>La información quedó almacenada y entró al flujo de análisis de capacidades.</p><div class="reference" id="reference"></div><button class="btn btn-primary" id="finishBtn" type="button">Finalizar</button></div></div>
+<footer class="public-footer"><div class="container">COTECMAR Conecta IA · Plataforma de relacionamiento y análisis de proveedores</div></footer>
+<script src="/static/public.js?v=1.0.1"></script>
+</body>
+</html>
